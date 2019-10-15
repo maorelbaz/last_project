@@ -1,0 +1,22 @@
+<h4>Chores List:</h4>
+<table>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Family Member</th>
+    <th>Description</th>
+
+    <tr *ngFor="let chore of ChoresList; let i = index">
+        <td>
+            {{chore.ID}}
+        </td>
+        <td>
+            {{chore.date}}
+        </td>
+        <td *ngIf="nameConvert(chore.memid) as name">
+            {{ name.name + ' "' + name.nick + '" ' + name.descr }}
+        </td>
+        <td>
+            {{chore.descr}}
+        </td>
+    </tr>
+</table>

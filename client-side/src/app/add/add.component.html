@@ -1,0 +1,22 @@
+<h4>Add a Chore</h4>
+<mat-form-field >
+    <input #desc matInput placeholder="Enter chore Description">
+</mat-form-field>
+&nbsp;
+<mat-form-field >
+    <mat-label>Select a family member</mat-label>
+    <mat-select #memid>
+        <mat-option *ngFor="let name of FamMemList" [value]="name.ID">
+            {{name.name}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<br >
+<button mat-raised-button color="primary" (click)="addChore(memid.value, desc.value); desc.value = ''; memid.value = ''">Add Chore</button>
+<div *ngIf="error" class="error">
+    There was an error, please try again.
+</div>
+
+<div *ngIf="success" class="success">
+    Chore successfully added!
+</div>
